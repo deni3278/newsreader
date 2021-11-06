@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="Newsreader.Views.ArticlesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Newsreader.Views"
+             xmlns:viewmodels="clr-namespace:Newsreader.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewmodels:ArticlesViewModel}"
+             d:DesignWidth="800"
+             d:DesignHeight="536"
+             MinWidth="800"
+             MinHeight="536">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="64" />
+        </Grid.RowDefinitions>
+
+        <ListView ItemsSource="{Binding FilteredArticles}" 
+                  SelectedItem="{Binding SelectedItem}" 
+                  Grid.Column="0" 
+                  Grid.Row="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Article ID" 
+                                    DisplayMemberBinding="{Binding ArticleID}" />
+                    <GridViewColumn Header="From" 
+                                    DisplayMemberBinding="{Binding From}" />
+                    <GridViewColumn Header="Subject" 
+                                    DisplayMemberBinding="{Binding Subject}" />
+                    <GridViewColumn Header="Date" 
+                                    DisplayMemberBinding="{Binding Date}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid Grid.Column="0" 
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" 
+                        Height="64" 
+                        Grid.Column="0" 
+                        Grid.Row="0">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="8 0 8 0" />
+                        <Setter Property="Width" Value="128" />
+                        <Setter Property="Height" Value="40" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <Button Content="Open" 
+                    Command="{Binding OpenCommand}" />
+
+                <Button Content="New" 
+                    Command="{Binding NewCommand}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Right" 
+                        Grid.Column="1" 
+                        Grid.Row="0">
+                <Label Content="Name:" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       HorizontalContentAlignment="Center" 
+                       VerticalContentAlignment="Center" 
+                       Margin="8 0 8 0" />
+
+                <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" 
+                         FontSize="16" 
+                         HorizontalContentAlignment="Center" 
+                         VerticalContentAlignment="Center" 
+                         Margin="8 0 8 0" 
+                         Width="200" 
+                         Height="40" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

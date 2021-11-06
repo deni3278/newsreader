@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsreader", "Newsreader.csproj", "{3DD15456-F2FB-4A2E-9D38-4133557B4E88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsreaderTests", "..\NewsreaderTests\NewsreaderTests.csproj", "{10C318C3-CFFD-40CB-882D-589A7ACF8DC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DD15456-F2FB-4A2E-9D38-4133557B4E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD15456-F2FB-4A2E-9D38-4133557B4E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD15456-F2FB-4A2E-9D38-4133557B4E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD15456-F2FB-4A2E-9D38-4133557B4E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C318C3-CFFD-40CB-882D-589A7ACF8DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C318C3-CFFD-40CB-882D-589A7ACF8DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C318C3-CFFD-40CB-882D-589A7ACF8DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C318C3-CFFD-40CB-882D-589A7ACF8DC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FB42C24-C61F-4D3D-9006-56DAFDC7190D}
+	EndGlobalSection
+EndGlobal

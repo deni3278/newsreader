@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Newsreader.Views.SubscriptionsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Newsreader.Views"
+             xmlns:viewmodels="clr-namespace:Newsreader.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewmodels:SubscriptionsViewModel}"
+             d:DesignWidth="800"
+             d:DesignHeight="536"
+             MinWidth="800"
+             MinHeight="536">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="64" />
+        </Grid.RowDefinitions>
+
+        <ListView ItemsSource="{Binding FilteredSubscriptions}" 
+                  SelectedItem="{Binding SelectedItem}" 
+                  Grid.Column="0" 
+                  Grid.Row="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" 
+                                    DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Last" 
+                                    DisplayMemberBinding="{Binding Last}" />
+                    <GridViewColumn Header="First" 
+                                    DisplayMemberBinding="{Binding First}" />
+                    <GridViewColumn Header="Total" 
+                                    DisplayMemberBinding="{Binding Total}" />
+                    <GridViewColumn Header="Type" 
+                                    DisplayMemberBinding="{Binding Type}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid Grid.Column="0" 
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" 
+                        Height="64" 
+                        Grid.Column="0" 
+                        Grid.Row="0">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="8 0 8 0" />
+                        <Setter Property="Width" Value="128" />
+                        <Setter Property="Height" Value="40" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <Button Content="Open" 
+                    Command="{Binding OpenCommand}" />
+
+                <Button Content="Unsubscribe" 
+                    Command="{Binding UnsubscribeCommand}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Right" 
+                        Grid.Column="1" 
+                        Grid.Row="0">
+                <Label Content="Subject:" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       HorizontalContentAlignment="Center" 
+                       VerticalContentAlignment="Center" 
+                       Margin="8 0 8 0" />
+
+                <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" 
+                         FontSize="16" 
+                         HorizontalContentAlignment="Center" 
+                         VerticalContentAlignment="Center" 
+                         Margin="8 0 8 0" 
+                         Width="200" 
+                         Height="40" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
